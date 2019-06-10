@@ -1,0 +1,5 @@
+# JetBrains project configuration
+.idea/
+
+# Go vendored dependencies
+vendor/

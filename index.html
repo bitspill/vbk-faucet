@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VeriBlock Testnet Faucet</title>
+    <style>
+        body {
+            background-color: #181818;
+            color: #d7e0ec;
+            font-size: larger;
+        }
+
+        .wrapper {
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            text-align: center;
+            background-color: #1b2538;
+            padding: 10px 10px 20px;
+            border-radius: 10px;
+        }
+
+        .alert {
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .green {
+            background-color: #4CAF50;
+        }
+
+        .red {
+            background-color: #bd1a20;
+        }
+
+        .sendBtn {
+            border: none;
+            padding: 10px;
+            transition-duration: 0.4s;
+            border-radius: 5px;
+        }
+
+        .sendBtn:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #addr {
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+{{if .HasAlert}}
+    <div class="alert {{.AlertColor}}">{{.AlertContents}}</div>
+{{end}}
+
+<div class="wrapper">
+    <h1>Testnet VeriBlock Faucet</h1>
+    <span>Current faucet balance: {{.FaucetBalanceStr}} VBK</span>
+    <br/><br/>
+    <form method="post">
+        <label for="addr"></label><input size="30" title="Enter a valid VeriBlock testnet address" pattern="[1-9a-km-zA-HJ-NP-Z]{30}" id="addr"
+                                         placeholder="VBK Testnet Address" type="text" name="addr">
+        <br/><br/>
+        <button class="sendBtn" type="submit">Send Coins</button>
+    </form>
+</div>
+
+<div class="wrapper">
+    <h3>Done testing or got extra coins?</h3>
+    Feed the faucet TESTNET coins at {{.FaucetVbkAddress}}
+</div>
+</body>
+</html>
